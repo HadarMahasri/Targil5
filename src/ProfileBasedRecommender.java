@@ -54,7 +54,7 @@ class ProfileBasedRecommender<T extends Item> extends RecommenderSystem<T> {
         User targetUser = users.get(userId);
         if (targetUser == null) return Collections.emptyList();
         return users.values().stream()
-                .filter(u -> u.getId() != userId)  // ← ADD THIS LINE
+                .filter(u -> u.getId() != userId)
                 .filter(u -> u.getGender().equals(targetUser.getGender()))
                 .filter(u -> Math.abs(u.getAge() - targetUser.getAge()) <= 5)
                 .collect(toList());
